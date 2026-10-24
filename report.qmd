@@ -84,18 +84,6 @@ movies_clean |>
   knitr::kable()
 ```
 
-## Visualization
-
-### Movie Ratings
-
-We begin by looking at how the ratings of the movies are distributed.
-
-```{r}
-ggplot(movies_clean, aes(x = rating)) +
-  geom_histogram(bindwith = 5, fill = "steelblue", colour = "white")+
-  labs(title = "Distribution of movie ratings",
-       x = "Rating (out of 100)",
-       y = "Number of movies")
 
 ```
 
