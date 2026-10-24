@@ -2,3 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Data files (we don't want to commit these)
+*.csv
+# Rendered reports (these can be recreated by rendering report.qmd)
+*.html
