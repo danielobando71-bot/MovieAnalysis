@@ -116,6 +116,10 @@ title = "Median profit by genre",
 x = "Median profit (millions of dollars)",
 y = NULL
 )
+
 ```
 
-\`\`\`
+
+## Conclusion
+
+This report carried out an exploratory analysis of the IMDb movies dataset
