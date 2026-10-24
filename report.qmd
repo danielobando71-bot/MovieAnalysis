@@ -63,13 +63,8 @@ ncol(movies)
 ```
 
 ## Pre - processing
-Before analysing the data we need to clean it. Some movies in the dataset
-have a rating of 0, which suggests that they were never rated, and some
-have a budget or revenue of less than one million dollars, which are
-unlikely to be reliable. These would distort our results, so we remove
-them using `filter()`. We also use `mutate()` to create two new
-variables: the `profit` of each movie (its revenue minus its budget), and
-the `decade` in which it was released.
+
+Before analysing the data we need to clean it. Some movies in the dataset have a rating of 0, which suggests that they were never rated, and some have a budget or revenue of less than one million dollars, which are unlikely to be reliable. These would distort our results, so we remove them using `filter()`. We also use `mutate()` to create two new variables: the `profit` of each movie (its revenue minus its budget), and the `decade` in which it was released.
 
 ```{r}
 movies_clean <- movies |>
@@ -80,14 +75,27 @@ movies_clean <- movies |>
   )
 ```
 
-This removed 805 movies, leaving us
-with 8918 movies to analyse. As a check that our new
-variables make sense, here are the five most profitable movies in the
-dataset:
+This removed 805 movies, leaving us with 8918 movies to analyse. As a check that our new variables make sense, here are the five most profitable movies in the dataset:
+
 ```{r}
 movies_clean |>
   slice_max(profit, n= 5) |>
   select(title, release_year, budget, revenue, profit) |>
   knitr::kable()
+```
+
+## Visualization
+
+### Movie Ratings
+
+We begin by looking at how the ratings of the movies are distributed.
+
+```{r}
+ggplot(movies_clean, aes(x = rating)) +
+  geom_histogram(bindwith = 5, fill = "steelblue", colour = "white")+
+  labs(title = "Distribution of movie ratings",
+       x = "Rating (out of 100)",
+       y = "Number of movies")
+
 ```
 
