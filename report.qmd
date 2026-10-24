@@ -99,3 +99,26 @@ ggplot(movies_clean, aes(x = rating)) +
 
 ```
 
+### Genres
+Finally, we look at whether some genres are more profitable than others.
+Each genre is stored in its own `TRUE`/`FALSE` column, so we first use
+`pivot_longer()` to put them into a single `genre` column, keeping a row
+for each genre that a movie belongs to (so a movie that is both Action and
+SciFi appears twice). We then calculate the median profit for each genre.
+
+```{r}
+movies_clean |>
+tidyr::pivot_longer(Action:SciFi, names_to = "genre", values_to = "in_genre") |>
+filter(in_genre == TRUE) |>
+group_by(genre) |>
+summarise(median_profit = median(profit)) |>
+ggplot(aes(x = median_profit, y = reorder(genre, median_profit))) +
+geom_col(fill = "steelblue") +
+labs(
+title = "Median profit by genre",
+x = "Median profit (millions of dollars)",
+y = NULL
+)
+```
+```
+
