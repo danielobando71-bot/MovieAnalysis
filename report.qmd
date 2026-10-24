@@ -15,10 +15,7 @@ editor: visual
 
 ## Introduction
 
-In this report we explore a dataset of movies taken from the Internet Movie Database (IMDb). The analysis has three parts: 
-1. We first load and describe the data 
-2. We preprocess the data 
-3. We visualise it.
+In this report we explore a dataset of movies taken from the Internet Movie Database (IMDb). The analysis has three parts: 1. We first load and describe the data 2. We preprocess the data 3. We visualise it.
 
 ## Quarto
 
@@ -40,3 +37,8 @@ You can add options to executable code like this
 ```
 
 The `echo: false` option disables the printing of code (only output is displayed).ss
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
