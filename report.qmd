@@ -38,7 +38,28 @@ You can add options to executable code like this
 
 The `echo: false` option disables the printing of code (only output is displayed).ss
 
+## The Data
+
+We use the `dplyr` package to manipulate the data and the `ggplot2` package to create plots.
+
 ```{r}
 library(dplyr)
 library(ggplot2)
 ```
+
+The data is stored in the file `CleanMovies.csv`, which we load into R.
+
+```{r}
+movies <- read.csv("CleanMovies.csv")
+head(movies)
+```
+
+The dataset contains `r nrow(movies)` films and `r ncol(movies)` variables.
+```{r}
+#The dataset contains:
+`r nrow(movies)` #films 
+ncol(movies)` #variables.
+
+```
+
+Render the report to check it works, then save, stage and commit report.qmd with the message:
